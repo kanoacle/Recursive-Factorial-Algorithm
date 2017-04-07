@@ -5,12 +5,12 @@ const factorial = require('../js/factorial.js');
 
 describe('factorial()', () => {
   it('should only take in a number', () => {
-    expect(factorial('18')).to.equal(false);
-    expect(factorial(['hi'])).to.equal(false);
-    expect(factorial({hey: 12})).to.equal(false);
-    expect(factorial(null)).to.equal(false);
-    expect(factorial(undefined)).to.equal(false);
-    expect(factorial(NaN)).to.equal(false);
+    expect(factorial.bind(factorial, '18')).to.throw(Error);
+    expect(factorial.bind(factorial, ['hi'])).to.throw(Error);
+    expect(factorial.bind(factorial, {hey: 12})).to.throw(Error);
+    expect(factorial.bind(factorial, null)).to.throw(Error);
+    expect(factorial.bind(factorial, undefined)).to.throw(Error);
+    expect(factorial.bind(factorial, NaN)).to.throw(Error);
   });
   it('should return the factorial of a given input number', () => {
     expect(factorial(3)).to.equal(6);

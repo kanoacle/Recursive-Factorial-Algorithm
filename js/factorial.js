@@ -1,7 +1,7 @@
 /*jshint esversion: 6*/
 const factorial = (num) => {
-  if (typeof(num) !== 'number' || isNaN(num)) {
-    return false;
+  if (typeof(num) !== 'number' || isNaN(num) || num < 0) {
+    throw new Error('No can dat kine');
   } else if (num === 1) {
     return num;
   }
